@@ -9,14 +9,23 @@
     <thead>
         <tr>
             <th>Customer</th>
-            <th>Discount Rate</th>
+            <th>Date Of Birth</th>
+            <th>Membership Type</th>
         </tr>
     </thead>
     @foreach (var cust in Model)
     {
         <tr>
-            <td>@Html.ActionLink(@cust.Name, "Details", new { id = cust.ID })</td>
-            <td>@cust.MembershipType.DiscountRate %</td>
+            <td>@Html.ActionLink(@cust.Name, "Edit", new { id = cust.ID })</td>
+            @if (@cust.DateOfBirth.HasValue)
+            {
+                <td>@cust.DateOfBirth.Value.ToShortDateString()</td>
+            }
+            else
+            {
+                <td>&nbsp;</td>
+            }
+                <td>@cust.MembershipType.Name </td>
         </tr>
     }
 </table>
