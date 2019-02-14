@@ -197,6 +197,34 @@
     <Compile Include="Migrations\201902131455484_AddConstraint.Designer.cs">
       <DependentUpon>201902131455484_AddConstraint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902140405585_movies.cs" />
+    <Compile Include="Migrations\201902140405585_movies.Designer.cs">
+      <DependentUpon>201902140405585_movies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140412091_Customers.cs" />
+    <Compile Include="Migrations\201902140412091_Customers.Designer.cs">
+      <DependentUpon>201902140412091_Customers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140423460_AddNameColumnToMembership.cs" />
+    <Compile Include="Migrations\201902140423460_AddNameColumnToMembership.Designer.cs">
+      <DependentUpon>201902140423460_AddNameColumnToMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140428037_AddNameValueToMembership.cs" />
+    <Compile Include="Migrations\201902140428037_AddNameValueToMembership.Designer.cs">
+      <DependentUpon>201902140428037_AddNameValueToMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140443429_AddName.cs" />
+    <Compile Include="Migrations\201902140443429_AddName.Designer.cs">
+      <DependentUpon>201902140443429_AddName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140506475_AddCustDOB.cs" />
+    <Compile Include="Migrations\201902140506475_AddCustDOB.Designer.cs">
+      <DependentUpon>201902140506475_AddCustDOB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902140520003_test.cs" />
+    <Compile Include="Migrations\201902140520003_test.Designer.cs">
+      <DependentUpon>201902140520003_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -296,6 +324,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902131455484_AddConstraint.resx">
       <DependentUpon>201902131455484_AddConstraint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140405585_movies.resx">
+      <DependentUpon>201902140405585_movies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140412091_Customers.resx">
+      <DependentUpon>201902140412091_Customers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140423460_AddNameColumnToMembership.resx">
+      <DependentUpon>201902140423460_AddNameColumnToMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140428037_AddNameValueToMembership.resx">
+      <DependentUpon>201902140428037_AddNameValueToMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140443429_AddName.resx">
+      <DependentUpon>201902140443429_AddName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140506475_AddCustDOB.resx">
+      <DependentUpon>201902140506475_AddCustDOB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902140520003_test.resx">
+      <DependentUpon>201902140520003_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
