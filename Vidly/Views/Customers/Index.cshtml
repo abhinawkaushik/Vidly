@@ -16,9 +16,16 @@
     @foreach (var cust in Model)
     {
         <tr>
-            <td>@Html.ActionLink(@cust.Name, "Details", new { id = cust.ID })</td>
-            <td>@cust.DateOfBirth.Value.ToShortDateString()</td>
-            <td>@cust.MembershipType.Name </td>
+            <td>@Html.ActionLink(@cust.Name, "Edit", new { id = cust.ID })</td>
+            @if (@cust.DateOfBirth.HasValue)
+            {
+                <td>@cust.DateOfBirth.Value.ToShortDateString()</td>
+            }
+            else
+            {
+                <td>&nbsp;</td>
+            }
+                <td>@cust.MembershipType.Name </td>
         </tr>
     }
 </table>

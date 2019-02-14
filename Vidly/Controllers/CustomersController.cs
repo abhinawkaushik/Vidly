@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using System.Data.Entity;
+using Vidly.ViewModel;
 
 namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public CustomersController()
         {
@@ -26,25 +27,57 @@ namespace Vidly.Controllers
             var cust = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(cust);
         }
-        public ActionResult Details(int id)
+        public ActionResult Edit(int id)
         {
-            var cust = GetCustomerById(id);
-            if (cust == null)
-                return HttpNotFound();
-            return View(cust);
+            var viewModel = new NewCustomerViewModel
+            {
+                Customer = GetCustomerById(id),
+                MembershipType = _context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm", viewModel);
         }
-        //public IEnumerable<Customer> GetCustomers()
-        //{
-        //    return new List<Customer>()
-        //    {
-        //        new Customer() {ID=1, Name="Abhinaw" },
-        //        new Customer() {ID=2, Name="Manoj" },
-        //    };
-        //}
+
+        public ActionResult New()
+        {
+            var membershipType = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel()
+            {
+                MembershipType = membershipType,
+                Customer = new Customer()
+            };
+            return View("CustomerForm",viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer Customer)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new NewCustomerViewModel
+                {
+                    Customer =  Customer,
+                    MembershipType = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+
+            if (Customer.ID == 0)
+                _context.Customers.Add(Customer);
+            else
+            {
+                var inDb = _context.Customers.Single(c => c.ID == Customer.ID);
+                inDb.Name = Customer.Name;
+                inDb.DateOfBirth = Customer.DateOfBirth;
+                inDb.IsSubscribedToNewsletter = Customer.IsSubscribedToNewsletter;
+                inDb.MembershipTypeID = Customer.MembershipTypeID;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
 
         public Customer GetCustomerById(int id)
         {
-            return _context.Customers.FirstOrDefault(x => x.ID == id);
+            return _context.Customers.Include(c=>c.MembershipType).FirstOrDefault(x => x.ID == id);
         }
     }
 }

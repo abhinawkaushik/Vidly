@@ -3,7 +3,7 @@ namespace Vidly.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class movies : DbMigration
+    public partial class test2 : DbMigration
     {
         public override void Up()
         {
@@ -12,6 +12,9 @@ namespace Vidly.Migrations
         
         public override void Down()
         {
+            DropColumn("dbo.Movies", "NumberInStock");
+            DropColumn("dbo.Movies", "DateAdded");
+            DropColumn("dbo.Movies", "ReleaseDate");
         }
     }
 }
