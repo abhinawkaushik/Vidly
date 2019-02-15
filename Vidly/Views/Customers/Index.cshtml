@@ -5,6 +5,7 @@
 }
 
 <h2>Customers</h2>
+@Html.ActionLink("New Customer", "Edit", new { id = 0 }, new { @class = "btn btn-primary" })
 <table class="table	table-bordered	table-hover">
     <thead>
         <tr>
@@ -25,7 +26,7 @@
             {
                 <td>&nbsp;</td>
             }
-                <td>@cust.MembershipType.Name </td>
+            <td>@cust.MembershipType.Name </td>
         </tr>
     }
 </table>

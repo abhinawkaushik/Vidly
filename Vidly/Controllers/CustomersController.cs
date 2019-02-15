@@ -29,9 +29,16 @@ namespace Vidly.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var viewModel = new NewCustomerViewModel
+            NewCustomerViewModel viewModel = null;
+            Customer customer = null;
+            if (id != 0)
+                customer = _context.Customers.Include(c => c.MembershipType).ToList().FirstOrDefault(x => x.ID == id);
+            else
+                customer = new Customer();
+
+            viewModel = new NewCustomerViewModel()
             {
-                Customer = GetCustomerById(id),
+                Customer = customer,
                 MembershipType = _context.MembershipTypes.ToList()
             };
             return View("CustomerForm", viewModel);
