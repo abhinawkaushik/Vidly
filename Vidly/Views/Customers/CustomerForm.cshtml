@@ -3,8 +3,14 @@
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>New Customer</h2>
+@if (Model.Customer.ID == 0)
+{
+    <h2>New Customer</h2>
+}
+else
+{
+    <h2>Edit Customer</h2>
+}
 
 @using (Html.BeginForm("Save", "Customers"))
 {
@@ -33,6 +39,7 @@
     @Html.HiddenFor(m => m.Customer.ID)
     <button class="btn btn-primary">Save</button>
 }
+@Html.ActionLink("Back to Customer List","Index")
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

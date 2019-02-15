@@ -30,4 +30,17 @@ namespace Vidly.Models
             }
         }
     }
+    public class CannotBeZero : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            var movie = (Movie)validationContext.ObjectInstance;
+
+            if (movie.NumberInStock == 0)
+            {
+                return new ValidationResult("Stock cannot be zero!");
+            }
+            return ValidationResult.Success;
+        }
+    }
 }

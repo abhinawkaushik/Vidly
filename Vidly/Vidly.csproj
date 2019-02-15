@@ -257,6 +257,14 @@
     <Compile Include="Migrations\201902140801535_test2.Designer.cs">
       <DependentUpon>201902140801535_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902151731047_testagain.cs" />
+    <Compile Include="Migrations\201902151731047_testagain.Designer.cs">
+      <DependentUpon>201902151731047_testagain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902151737224_NameAndReleaseRequired.cs" />
+    <Compile Include="Migrations\201902151737224_NameAndReleaseRequired.Designer.cs">
+      <DependentUpon>201902151737224_NameAndReleaseRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -407,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902140801535_test2.resx">
       <DependentUpon>201902140801535_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902151731047_testagain.resx">
+      <DependentUpon>201902151731047_testagain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902151737224_NameAndReleaseRequired.resx">
+      <DependentUpon>201902151737224_NameAndReleaseRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
