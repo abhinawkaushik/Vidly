@@ -298,6 +298,10 @@
     <Compile Include="Migrations\201902181143076_AddDrivingLicenceToDBRegister.Designer.cs">
       <DependentUpon>201902181143076_AddDrivingLicenceToDBRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902211544511_AddRentalClass.cs" />
+    <Compile Include="Migrations\201902211544511_AddRentalClass.Designer.cs">
+      <DependentUpon>201902211544511_AddRentalClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -307,6 +311,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18Years.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -640,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902181143076_AddDrivingLicenceToDBRegister.resx">
       <DependentUpon>201902181143076_AddDrivingLicenceToDBRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211544511_AddRentalClass.resx">
+      <DependentUpon>201902211544511_AddRentalClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
