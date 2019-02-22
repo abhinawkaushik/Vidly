@@ -24,5 +24,7 @@ namespace Vidly.Models
         [Required]
         [CannotBeZero]
         public int NumberInStock { get; set; }
+
+        public int NumberAvailable { get; set; }
     }
 }

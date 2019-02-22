@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Data.Entity;
 using Vidly.DTO;
 using Vidly.Models;
 
@@ -21,11 +22,17 @@ namespace Vidly.Controllers.API
 
         //GET api/Movies
 
-        public IEnumerable<MoviesDTO> GetMovies()
+        public IEnumerable<MoviesDTO> GetMovies(string query = null)
         {
-            var movies = _context.Movies.ToList().Select(Mapper.Map<Movie, MoviesDTO>);
+            var moviesQuery = _context.Movies.Include(c => c.Genre).Where(c => c.NumberAvailable > 0);
+            if (!string.IsNullOrWhiteSpace(query))
+            {
+                moviesQuery = moviesQuery.Where(c => c.Name.Contains(query) && c.NumberAvailable > 0);
+            }
+            var moviesDTOS =moviesQuery.ToList()
+            .Select(Mapper.Map<Movie, MoviesDTO>);
 
-            return movies;
+            return moviesDTOS;
         }
 
         //GET api/Movies/1        
